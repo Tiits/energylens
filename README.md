@@ -109,7 +109,7 @@ The application is available online at: `https://energylens.streamlit.app`
 
 ## Acknowledgements
 
-- **HEAPO Dataset** (Zurich University of Applied Sciences/ZHAW)  
+- **HEAPO Dataset** (Zurich University of Applied Sciences/ZHAW) - arXiv:2503.16993
 - **Facebook Prophet** for robust forecasting  
 - **Streamlit** for rapid web app prototyping  
 - **Plotly** for interactive visualizations  
