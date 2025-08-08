@@ -65,7 +65,7 @@ venv.bak/
 
 # IDEs and editors
 .idea/
-*.iml
+/.idea/
 .vscode/
 
 # macOS
