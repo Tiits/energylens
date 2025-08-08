@@ -40,7 +40,11 @@ def load_heapo_raw(zip_path: str, download_url: str = DOWNLOAD_URL) -> pd.DataFr
     # Read and combine all household files
     df_list = []
     for file in csv_files:
-        df_i = pd.read_csv(file, parse_dates=["timestamp"])
+        df_i = pd.read_csv(file, parse_dates=["Timestamp"])
+        df_i = df_i.rename(columns={
+            "Timestamp": "timestamp",
+            "kWh_received_Total": "consumption"
+        })
         household_id = os.path.splitext(os.path.basename(file))[0]
         df_i["household"] = household_id
         df_list.append(df_i[["timestamp", "household", "consumption"]])
