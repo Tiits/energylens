@@ -62,6 +62,12 @@ This project uses the HEAPO dataset (Canton of Zurich, 2018–2024), which provi
 
 ## Usage
 
+### Online Access
+
+The application is available online at: `https://energylens.streamlit.app`
+
+### Local Installation and Usage
+
 1. Place the HEAPO CSV into `data/raw/` (e.g., `data/raw/heapo.csv`).  
 2. Run the Streamlit app:
    ```bash
