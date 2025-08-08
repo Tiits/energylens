@@ -16,12 +16,19 @@ st.sidebar.header("Configuration")
 data_path = st.sidebar.text_input(
     "HEAPO archive path", "data/raw/heapo_data.zip"
 )
+@st.cache_data(show_spinner=False)
+def load_data(zip_path: str):
+    return load_heapo_raw(zip_path)
+
+@st.cache_data
+def preprocess(df_raw: pd.DataFrame) -> pd.DataFrame:
+    return preprocess_heapo(df_raw)
 
 # Loading data
 with st.spinner("Loading and preprocessing data..."):
     try:
-        df_raw = load_heapo_raw(data_path)
-        df = preprocess_heapo(df_raw)
+        df_raw = load_data(data_path)
+        df = preprocess(df_raw)
     except Exception as e:
         st.error(f"Error loading data: {e}")
         st.stop()
