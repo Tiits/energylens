@@ -14,7 +14,7 @@ st.sidebar.header("Configuration")
 
 # Data path
 data_path = st.sidebar.text_input(
-    "CSV HEAPO raw path", "data/raw/heapo.csv"
+    "HEAPO archive path", "data/raw/heapo_data.zip"
 )
 
 # Loading data

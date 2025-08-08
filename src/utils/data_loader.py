@@ -25,14 +25,17 @@ def load_heapo_raw(zip_path: str, download_url: str = DOWNLOAD_URL) -> pd.DataFr
                 f.write(chunk)
 
     # Extract if not already extracted
-    extract_dir = os.path.splitext(zip_path)[0]
+    extract_dir = os.path.join(os.path.dirname(zip_path), "heapo_data")
     if not os.path.isdir(extract_dir):
         with zipfile.ZipFile(zip_path, "r") as z:
             z.extractall(os.path.dirname(zip_path))
 
     # Path to 15-minute data
     data_folder = os.path.join(extract_dir, "smart_meter_data", "15min")
+
     csv_files = glob.glob(os.path.join(data_folder, "*.csv"))
+    if not csv_files:
+        raise ValueError(f"No 15-minute CSVs found in {data_folder}. Check that the ZIP extracted correctly.")
 
     # Read and combine all household files
     df_list = []
